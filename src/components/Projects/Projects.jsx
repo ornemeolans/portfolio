@@ -106,14 +106,14 @@ function Projects() {
             className={`projects__tab ${activeTab === 'projects' ? 'projects__tab--active' : ''}`}
             onClick={() => setActiveTab('projects')}
           >
-            <span className="projects__tab-icon">P</span>
+            <span className="projects__tab-icon">💡</span>
             Proyectos
           </button>
           <button 
             className={`projects__tab ${activeTab === 'skills' ? 'projects__tab--active' : ''}`}
             onClick={() => setActiveTab('skills')}
           >
-            <span className="projects__tab-icon">E</span>
+            <span className="projects__tab-icon">🛠️</span>
             Equipamiento
           </button>
         </div>
