@@ -114,7 +114,7 @@ function Projects() {
             onClick={() => setActiveTab('skills')}
           >
             <span className="projects__tab-icon">🛠️</span>
-            Equipamiento
+            Habilidades Tecnicas
           </button>
         </div>
 

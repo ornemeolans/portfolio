@@ -24,9 +24,9 @@ function App() {
             <span className="nav__logo-text">Portfolio</span>
           </a>
           <ul className="nav__links">
-            <li><a href="#hero">Home</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#hero">Incio</a></li>
+            <li><a href="#projects">Proyectos</a></li>
+            <li><a href="#contact">Contacto</a></li>
           </ul>
         </div>
       </nav>
@@ -38,7 +38,7 @@ function App() {
       </main>
 
       <footer className="footer">
-        <p>© {new Date().getFullYear()} • Built with passion</p>
+        <p>© {new Date().getFullYear()} • Construido con pasión</p>
       </footer>
     </div>
   )

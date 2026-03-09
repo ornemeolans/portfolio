@@ -265,6 +265,34 @@
   transform: scale(1.05);
 }
 
+/* Terminal Suggestions */
+.terminal__suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+  padding: var(--spacing-sm);
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius-md);
+}
+
+.terminal__suggestion {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: rgba(131, 153, 88, 0.2);
+  border: 1px solid var(--moss-green);
+  border-radius: var(--radius-sm);
+  color: var(--beige);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.terminal__suggestion:hover {
+  background: var(--moss-green);
+  color: var(--dark-green);
+}
+
 /* Scrollbar for terminal */
 .terminal__body::-webkit-scrollbar {
   width: 6px;

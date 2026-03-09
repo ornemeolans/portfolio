@@ -2,9 +2,9 @@ import { useState, useEffect, useRef } from 'react'
 import './Hero.css'
 
 const ROLES = [
-  { text: 'Frontend Developer', icon: '💻' },
-  { text: 'Photographer', icon: '📷' },
-  { text: 'Problem Solver', icon: '🧩' }
+  { text: 'Desarrolladora Frontend', icon: '💻' },
+  { text: 'Fotografa', icon: '📷' },
+  { text: 'Solucionadora de problemas', icon: '🧩' }
 ]
 
 function Hero() {
@@ -112,15 +112,15 @@ function Hero() {
       <div className="hero__content">
         <div className="hero__badge">
           <span className="hero__badge-dot" />
-          Available for work
+          Disponible para trabajar
         </div>
         
         <h1 className="hero__title">
-          Hi, I'm <span className="hero__name">Ornella Meolans</span>
+          Hola, Soy <span className="hero__name">Ornella Meolans</span>
         </h1>
         
         <h2 className="hero__subtitle">
-          I'm a{' '}
+          Soy {' '}
           <span className="hero__role">
             <span className="hero__role-icon">{ROLES[roleIndex].icon}</span>
             <span className="hero__role-text">
@@ -136,13 +136,13 @@ function Hero() {
 
         <div className="hero__cta">
           <a href="#projects" className="hero__button hero__button--primary">
-            View Projects
+            Mis Proyectos
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M7 17L17 7M17 7H7M17 7V17" />
             </svg>
           </a>
           <a href="#contact" className="hero__button hero__button--secondary">
-            Get In Touch
+            Contactame
           </a>
         </div>
 
@@ -160,7 +160,7 @@ function Hero() {
         </div>
 
         <div className="hero__scroll">
-          <span>Scroll</span>
+          <span>Desliza</span>
           <div className="hero__scroll-line">
             <div className="hero__scroll-dot" />
           </div>

@@ -1,18 +1,106 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import './Contact.css'
 
 const CONTACTS = [
   { type: 'email', label: 'Email', value: 'ornelmeolans@gmail.com', icon: '✉️', url: 'mailto:ornelmeolans@gmail.com' },
   { type: 'github', label: 'GitHub', value: 'github.com/ornelmeolans', icon: '🐙', url: 'https://github.com/ornelmeolans' },
+  { type: 'linkedin', label: 'LinkedIn', value: 'linkedin.com/in/ornelmeolans', icon: '💼', url: 'https://linkedin.com/in/ornelmeolans' },
   { type: 'location', label: 'Ubicación', value: 'Córdoba, Argentina', icon: '📍', url: null }
 ]
 
+const PROJECTS = [
+  { name: 'Mandala Cakes', url: 'https://mandalacakes.netlify.app/' },
+  { name: 'Soguero', url: 'https://sergiomeolans.netlify.app/' },
+  { name: 'Calculadora Konecta', url: 'https://ornemeolans.github.io/Calculadora-Sueldo-Konecta/' },
+  { name: 'PopCorn Locator', url: 'https://ornemeolans.github.io/PopCorn-Locator/' },
+  { name: 'Orne Meolans PH', url: 'https://ornemeolans.github.io/ornemeolansph/' },
+  { name: 'Kosa E-commerce', url: 'https://kosa-ecommerce.netlify.app/' } 
+]
+
+const COMMANDS = {
+  help: {
+    description: 'Ver todos los comandos disponibles',
+    response: 'Comandos disponibles:\n- ayuda / help\n- contacto\n- proyectos / projects\n- skills\n- sobre mi\n- clear'
+  },
+  ayuda: {
+    description: 'Ver todos los comandos disponibles',
+    response: 'Comandos disponibles:\n- ayuda / help\n- contacto\n- proyectos / projects\n- skills\n- sobre mi\n- clear'
+  },
+  contacto: {
+    description: 'Información de contacto',
+    response: '📧 Email: ornelmeolans@gmail.com\n🐙 GitHub: github.com/ornelmeolans\n💼 LinkedIn: linkedin.com/in/ornelmeolans\n📍 Ubicación: Córdoba, Argentina'
+  },
+  proyectos: {
+    description: 'Lista de proyectos',
+    response: PROJECTS.map((p, i) => `${i + 1}. ${p.name}: ${p.url}`).join('\n')
+  },
+  projects: {
+    description: 'Lista de proyectos (English)',
+    response: PROJECTS.map((p, i) => `${i + 1}. ${p.name}: ${p.url}`).join('\n')
+  },
+  skills: {
+    description: 'Mis habilidades técnicas',
+    response: '🛠️ Habilidades técnicas:\n- Frontend: React, JavaScript, HTML/CSS\n- Design: Photoshop, Lightroom\n- Tools: Git, SEO, UI/UX'
+  },
+  'sobre mi': {
+    description: 'Sobre mí',
+    response: '👋 Hola! Soy Ornella Meolans\n📷 Fotógrafa & Frontend Developer\n💻 Especializada en interfaces Pixel Perfect\n🎯 Siempre buscando nuevos desafíos!'
+  },
+  about: {
+    description: 'About me (English)',
+    response: '👋 Hi! I am Ornella Meolans\n📷 Photographer & Frontend Developer\n💻 Specialized in Pixel Perfect interfaces\n🎯 Always looking for new challenges!'
+  },
+  clear: {
+    description: 'Limpiar terminal',
+    response: null,
+    action: 'clear'
+  }
+}
+
+const WELCOME_MESSAGE = `¡Bienvenido a mi portfolio interactivo! 🎯
+Escribí un comando para comenzar:
+- ayuda / help
+- contacto
+- proyectos
+- skills
+- sobre mi
+
+Escribí cualquier cosa para ver las opciones...`
+
 function Contact() {
   const [messages, setMessages] = useState([
-    { id: 1, type: 'bot', text: '¡Hola! Gracias por visitar mi portfolio. ¿En qué puedo ayudarte?' }
+    { id: 1, type: 'bot', text: WELCOME_MESSAGE }
   ])
   const [input, setInput] = useState('')
   const [isTyping, setIsTyping] = useState(false)
+  const [suggestions, setSuggestions] = useState([])
+  const messagesEndRef = useRef(null)
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  useEffect(() => {
+    scrollToBottom()
+  }, [messages])
+
+  const getCommandResponse = (cmd) => {
+    const command = cmd.toLowerCase().trim()
+    if (COMMANDS[command]) {
+      return COMMANDS[command]
+    }
+    // Partial match for suggestions
+    const matches = Object.keys(COMMANDS).filter(c => c.startsWith(command))
+    if (matches.length > 0) {
+      return {
+        response: `¿Quisiste decir?: ${matches.map(m => m).join(', ')}\nEscribí ayuda para ver todos los comandos.`,
+        isSuggestion: true
+      }
+    }
+    return {
+      response: `Comando no reconocido: "${command}"\nEscribí "ayuda" o "help" para ver los comandos disponibles.`
+    }
+  }
 
   const handleSend = () => {
     if (!input.trim()) return
@@ -20,16 +108,43 @@ function Contact() {
     const userMsg = { id: Date.now(), type: 'user', text: input }
     setMessages(prev => [...prev, userMsg])
     setInput('')
+    setSuggestions([])
     setIsTyping(true)
 
     setTimeout(() => {
       setIsTyping(false)
-      setMessages(prev => [...prev, { 
-        id: Date.now() + 1, 
-        type: 'bot', 
-        text: '¡Gracias por tu mensaje! Podés contactarme directamente por email o GitHub. ¡Hablemos!' 
-      }])
-    }, 1500)
+      const cmdResponse = getCommandResponse(input)
+      
+      if (cmdResponse.action === 'clear') {
+        setMessages([{ id: Date.now() + 1, type: 'bot', text: WELCOME_MESSAGE }])
+      } else {
+        setMessages(prev => [...prev, { 
+          id: Date.now() + 1, 
+          type: 'bot', 
+          text: cmdResponse.response 
+        }])
+      }
+    }, 800)
+  }
+
+  const handleInputChange = (e) => {
+    const value = e.target.value
+    setInput(value)
+    
+    // Show suggestions
+    if (value.trim()) {
+      const matches = Object.keys(COMMANDS).filter(c => 
+        c.toLowerCase().startsWith(value.toLowerCase().trim())
+      ).slice(0, 3)
+      setSuggestions(matches)
+    } else {
+      setSuggestions([])
+    }
+  }
+
+  const handleSuggestionClick = (suggestion) => {
+    setInput(suggestion)
+    setSuggestions([])
   }
 
   const handleKeyPress = (e) => {
@@ -104,16 +219,31 @@ function Contact() {
                     </span>
                   </div>
                 )}
+                <div ref={messagesEndRef} />
               </div>
+              
+              {suggestions.length > 0 && (
+                <div className="terminal__suggestions">
+                  {suggestions.map((s, i) => (
+                    <button 
+                      key={i} 
+                      className="terminal__suggestion"
+                      onClick={() => handleSuggestionClick(s)}
+                    >
+                      {s}
+                    </button>
+                  ))}
+                </div>
+              )}
               
               <div className="terminal__input-wrapper">
                 <span className="terminal__prompt">{"portfolio>"}</span>
                 <input
                   type="text"
                   className="terminal__input"
-                  placeholder="Escribí tu mensaje..."
+                  placeholder="Escribí un comando..."
                   value={input}
-                  onChange={(e) => setInput(e.target.value)}
+                  onChange={handleInputChange}
                   onKeyPress={handleKeyPress}
                 />
                 <button className="terminal__send" onClick={handleSend}>
