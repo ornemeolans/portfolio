@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import './Contact.css'
 
 const CONTACTS = [
-  { type: 'email', label: 'Email', value: 'ornelmeolans@gmail.com', icon: '✉️', url: 'mailto:ornelmeolans@gmail.com' },
+  { type: 'email', label: 'Email', value: 'ornellameolans@gmail.com', icon: '✉️', url: 'mailto:ornellameolans@gmail.com' },
   { type: 'github', label: 'GitHub', value: 'github.com/ornemeolans', icon: '🐙', url: 'https://github.com/ornemeolans' },
   { type: 'linkedin', label: 'LinkedIn', value: 'linkedin.com/in/ornellameolans', icon: '💼', url: 'https://linkedin.com/in/ornellameolans' },
   { type: 'location', label: 'Ubicación', value: 'Córdoba, Argentina', icon: '📍', url: null }
@@ -28,7 +28,7 @@ const COMMANDS = {
   },
   contacto: {
     description: 'Información de contacto',
-    response: '📧 Email: ornelmeolans@gmail.com\n🐙 GitHub: github.com/ornemeolans\n💼 LinkedIn: linkedin.com/in/ornellameolans\n📍 Ubicación: Córdoba, Argentina'
+    response: '📧 Email: ornellameolans@gmail.com\n🐙 GitHub: github.com/ornemeolans\n💼 LinkedIn: linkedin.com/in/ornellameolans\n📍 Ubicación: Córdoba, Argentina'
   },
   proyectos: {
     description: 'Lista de proyectos',
