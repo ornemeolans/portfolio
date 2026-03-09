@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect } from 'react'
-import './Contact.css'
 
 const CONTACTS = [
   { type: 'email', label: 'Email', value: 'ornellameolans@gmail.com', icon: '✉️', url: 'mailto:ornellameolans@gmail.com' },

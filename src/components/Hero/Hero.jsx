@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react'
-import './Hero.css'
 
 const ROLES = [
   { text: 'Desarrolladora Frontend', icon: '💻' },
