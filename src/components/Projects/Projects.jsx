@@ -7,8 +7,8 @@ const PROJECTS = [
     type: 'project',
     title: 'Mandala Cakes',
     category: 'E-Commerce',
-    description: 'E-commerce de pasteles artesanales con lógica de carrito de compras, gestión de productos y procesamiento de pedidos.',
-    image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&q=80',
+    description: 'SPA con lógica de carrito de compras en JavaScript. Gestión de productos, procesamiento de pedidos y experiencia de usuario fluida.',
+    image: 'https://image.thum.io/get/width/800/crop/600/https://mandalacakes.netlify.app/',
     tags: ['React', 'JavaScript', 'Carrito', 'CSS'],
     liveUrl: 'https://mandalacakes.netlify.app/',
     codeUrl: 'https://github.com/ornemeolans/mandalacakes'
@@ -18,73 +18,106 @@ const PROJECTS = [
     type: 'project',
     title: 'Soguero',
     category: 'Sitio Web',
-    description: 'Sitio web con enfoque en SEO y optimización de imágenes. Mejor rendimiento y posicionamiento en buscadores.',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
+    description: 'Sitio institucional con enfoque en optimización de imágenes y SEO. Mi lado fotográfico aplicado al desarrollo web para mejor rendimiento.',
+    image: 'https://image.thum.io/get/width/800/crop/600/https://sergiomeolans.netlify.app/',
     tags: ['SEO', 'Optimización', 'JavaScript'],
     liveUrl: 'https://sergiomeolans.netlify.app/',
-    codeUrl: 'https://github.com/ornemeolans/sergiomeolans-sogueria.github.io'
+    codeUrl: 'https://github.com/ornemeolans/sergiomeolans'
   },
   {
     id: 3,
     type: 'project',
-    title: 'PopCorn Locator',
-    category: 'Web App',
-    description: 'Aplicación para encontrar películas. Demuestra manejo de asincronismo, consumo de APIs externas y renderizado dinámico.',
-    image: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&q=80',
-    tags: ['React', 'APIs', 'Async/Await'],
-    liveUrl: 'https://ornemeolans.github.io/PopCorn-Locator/',
-    codeUrl: 'https://github.com/ornemeolans/PopCorn-Locator'
+    title: 'Calculadora de Sueldos Konecta',
+    category: 'Herramienta Interna',
+    description: 'Solución proactiva que desarrolló iniciativa propia. Redujo errores en el equipo de RRHH mediante cálculos automatizados precisos.',
+    image: 'https://image.thum.io/get/width/800/crop/600/https://ornemeolans.github.io/Calculadora-Sueldo-Konecta/',
+    tags: ['JavaScript', 'Lógica', 'UI/UX'],
+    liveUrl: 'https://ornemeolans.github.io/Calculadora-Sueldo-Konecta/',
+    codeUrl: 'https://github.com/ornemeolans/Calculadora-Sueldo-Konecta'
   },
   {
     id: 4,
     type: 'project',
-    title: 'Calculadora de Sueldos Konecta',
-    category: 'Herramienta',
-    description: 'Calculadora salarial desarrollada por iniciativa propia para resolver problemas reales de cálculo de nómina.',
-    image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&q=80',
-    tags: ['JavaScript', 'Lógica', 'UI/UX'],
-    liveUrl: 'https://ornemeolans.github.io/Calculadora-Sueldo-Konecta/',
-    codeUrl: 'https://github.com/ornemeolans/Calculadora-Sueldo-Konecta'
-  }
+    title: 'PopCorn Locator',
+    category: 'Web App',
+    description: 'Aplicación para encontrar películas. Demuestra manejo de asincronismo, consumo de APIs externas y renderizado dinámico.',
+    image: 'https://image.thum.io/get/width/800/crop/600/https://ornemeolans.github.io/PopCorn-Locator/',
+    tags: ['React', 'APIs', 'Async/Await'],
+    liveUrl: 'https://ornemeolans.github.io/PopCorn-Locator/',
+    codeUrl: 'https://github.com/ornemeolans/popcorn-locator'
+  },
+  {
+    id: 5,
+    type: 'project',
+    title: 'Orne Meolans PH',
+    category: 'Photography Portfolio',
+    description: 'Sitio profesional de fotografía con galerías dinámicas. Enfocado en la optimización de activos visuales, SEO y diseño interactivo para resaltar el trabajo artístico.',
+    image: 'https://image.thum.io/get/width/800/crop/600/https://ornemeolans.github.io/ornemeolansph/',
+    tags: ['SEO', 'UI/UX', 'Adobe Suite', 'Responsive'],
+    liveUrl: 'https://ornemeolans.github.io/ornemeolansph/',
+    codeUrl: 'https://github.com/ornemeolans/ornemeolansph'
+  },
+  {
+  id: 6,
+  type: 'project',
+  title: 'Kosa E-commerce',
+  category: 'Web App',
+  description: 'Plataforma de comercio electrónico para productos de hogar y decoración. Incluye catálogo dinámico, gestión de carrito y validación de stock en tiempo real.',
+  image: 'https://image.thum.io/get/width/800/crop/600/https://kosa-ecommerce.netlify.app/', // O la URL de tu preferencia para la vista previa
+  tags: ['React', 'Firebase', 'Context API', 'Responsive'],
+  liveUrl: 'https://kosa-ecommerce.netlify.app/', 
+  codeUrl: 'https://github.com/ornemeolans/kosa-ecommerce'
+}
 ]
 
 const SKILLS = [
-  { name: 'React', icon: '⚛️', category: 'frontend' },
-  { name: 'JavaScript', icon: '📜', category: 'frontend' },
-  { name: 'HTML/CSS', icon: '🎨', category: 'frontend' },
-  { name: 'Photoshop', icon: '📷', category: 'design' },
-  { name: 'Lightroom', icon: '✨', category: 'design' },
-  { name: 'Edición Digital', icon: '🎯', category: 'design' },
-  { name: 'Git', icon: '📦', category: 'tools' }
+  { name: 'React', icon: 'react', category: 'frontend' },
+  { name: 'JavaScript', icon: 'js', category: 'frontend' },
+  { name: 'HTML/CSS', icon: 'html', category: 'frontend' },
+  { name: 'Photoshop', icon: 'ps', category: 'design' },
+  { name: 'Lightroom', icon: 'lr', category: 'design' },
+  { name: 'Edición Digital', icon: 'edit', category: 'design' },
+  { name: 'Git', icon: 'git', category: 'tools' }
 ]
 
 function Projects() {
   const [hoveredId, setHoveredId] = useState(null)
   const [activeTab, setActiveTab] = useState('projects')
 
+  const getIcon = (iconName) => {
+    const icons = {
+      react: '⚛️',
+      js: '📜',
+      html: '🎨',
+      ps: '📷',
+      lr: '✨',
+      edit: '🎯',
+      git: '📦'
+    }
+    return icons[iconName] || '💻'
+  }
+
   return (
     <section id="projects" className="projects">
       <div className="projects__container">
         
-        {/* Tab Navigation - Like a film strip */}
         <div className="projects__tabs">
           <button 
             className={`projects__tab ${activeTab === 'projects' ? 'projects__tab--active' : ''}`}
             onClick={() => setActiveTab('projects')}
           >
-            <span className="projects__tab-icon">🎞️</span>
+            <span className="projects__tab-icon">P</span>
             Proyectos
           </button>
           <button 
             className={`projects__tab ${activeTab === 'skills' ? 'projects__tab--active' : ''}`}
             onClick={() => setActiveTab('skills')}
           >
-            <span className="projects__tab-icon">📷</span>
-            Herramientas
+            <span className="projects__tab-icon">E</span>
+            Equipamiento
           </button>
         </div>
 
-        {/* Projects Tab */}
         {activeTab === 'projects' && (
           <div className="projects__content">
             <div className="projects__header">
@@ -133,11 +166,6 @@ function Projects() {
                         rel="noopener noreferrer"
                         className="bento-item__link"
                       >
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                          <polyline points="15 3 21 3 21 9" />
-                          <line x1="10" y1="14" x2="21" y2="3" />
-                        </svg>
                         Ver Demo
                       </a>
                       <a 
@@ -146,10 +174,7 @@ function Projects() {
                         rel="noopener noreferrer"
                         className="bento-item__link bento-item__link--secondary"
                       >
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                        </svg>
-                        Código
+                        Codigo
                       </a>
                     </div>
                   </div>
@@ -159,17 +184,16 @@ function Projects() {
           </div>
         )}
 
-        {/* Skills Tab */}
         {activeTab === 'skills' && (
           <div className="projects__content">
             <div className="projects__header">
-              <span className="projects__label">Herramientas</span>
+              <span className="projects__label">Equipamiento</span>
               <h2 className="projects__title">
-                Stack Técnico
+                Herramientas y Skills
                 <span className="projects__title-accent">.</span>
               </h2>
               <p className="projects__subtitle">
-                Tecnologías y habilidades que utilizo para crear experiencias digitales
+                Mi set de herramientas tecnicas y creativas
               </p>
             </div>
 
@@ -180,7 +204,7 @@ function Projects() {
                   className="skill-card"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <span className="skill-card__icon">{skill.icon}</span>
+                  <span className="skill-card__icon">{getIcon(skill.icon)}</span>
                   <span className="skill-card__name">{skill.name}</span>
                   <span className="skill-card__category">{skill.category}</span>
                 </div>
@@ -188,17 +212,17 @@ function Projects() {
             </div>
 
             <div className="education-section">
-              <h3 className="education-section__title">Formación Académica</h3>
+              <h3 className="education-section__title">Formacion Academica</h3>
               <div className="education-cards">
                 <div className="education-card">
-                  <span className="education-card__icon">🎓</span>
+                  <span className="education-card__icon">U</span>
                   <div className="education-card__content">
-                    <h4>Licenciatura en Ciencias de la Computación</h4>
+                    <h4>Licenciatura en Cs. de la Computacion</h4>
                     <p>Universidad - En curso</p>
                   </div>
                 </div>
                 <div className="education-card">
-                  <span className="education-card__icon">💻</span>
+                  <span className="education-card__icon">C</span>
                   <div className="education-card__content">
                     <h4>Full Stack Developer</h4>
                     <p>Coderhouse - En curso</p>
@@ -214,4 +238,3 @@ function Projects() {
 }
 
 export default Projects
-

@@ -36,7 +36,6 @@ function Hero() {
     return () => clearTimeout(timeout)
   }, [displayText, isDeleting, roleIndex])
 
-  // Cursor blink effect
   useEffect(() => {
     const interval = setInterval(() => {
       setShowCursor(prev => !prev)
@@ -44,7 +43,6 @@ function Hero() {
     return () => clearInterval(interval)
   }, [])
 
-  // Floating shapes background - Camera lens effect
   useEffect(() => {
     const canvas = canvasRef.current
     const ctx = canvas.getContext('2d')
@@ -118,7 +116,7 @@ function Hero() {
         </div>
         
         <h1 className="hero__title">
-          Hi, I'm <span className="hero__name">Orne</span>
+          Hi, I'm <span className="hero__name">Ornella Meolans</span>
         </h1>
         
         <h2 className="hero__subtitle">
@@ -133,8 +131,7 @@ function Hero() {
         </h2>
 
         <p className="hero__description">
-          I craft digital experiences that blend creativity with functionality.
-          I solve real problems through code, like the "Calculadora de Sueldos Konecta".
+          Frontend Developer con ojo de fotógrafa. Especializada en interfaces Pixel Perfect y soluciones funcionales. Mi diferencial: la Calculadora de Sueldos Konecta, una solución proactiva que desarrolló iniciativa propia.
         </p>
 
         <div className="hero__cta">
@@ -161,12 +158,12 @@ function Hero() {
             </svg>
           </a>
         </div>
-      </div>
 
-      <div className="hero__scroll">
-        <span>Scroll</span>
-        <div className="hero__scroll-line">
-          <div className="hero__scroll-dot" />
+        <div className="hero__scroll">
+          <span>Scroll</span>
+          <div className="hero__scroll-line">
+            <div className="hero__scroll-dot" />
+          </div>
         </div>
       </div>
     </section>
