@@ -3,8 +3,8 @@ import './Contact.css'
 
 const CONTACTS = [
   { type: 'email', label: 'Email', value: 'ornelmeolans@gmail.com', icon: '✉️', url: 'mailto:ornelmeolans@gmail.com' },
-  { type: 'github', label: 'GitHub', value: 'github.com/ornelmeolans', icon: '🐙', url: 'https://github.com/ornelmeolans' },
-  { type: 'linkedin', label: 'LinkedIn', value: 'linkedin.com/in/ornelmeolans', icon: '💼', url: 'https://linkedin.com/in/ornelmeolans' },
+  { type: 'github', label: 'GitHub', value: 'github.com/ornemeolans', icon: '🐙', url: 'https://github.com/ornemeolans' },
+  { type: 'linkedin', label: 'LinkedIn', value: 'linkedin.com/in/ornellameolans', icon: '💼', url: 'https://linkedin.com/in/ornellameolans' },
   { type: 'location', label: 'Ubicación', value: 'Córdoba, Argentina', icon: '📍', url: null }
 ]
 
@@ -28,7 +28,7 @@ const COMMANDS = {
   },
   contacto: {
     description: 'Información de contacto',
-    response: '📧 Email: ornelmeolans@gmail.com\n🐙 GitHub: github.com/ornelmeolans\n💼 LinkedIn: linkedin.com/in/ornelmeolans\n📍 Ubicación: Córdoba, Argentina'
+    response: '📧 Email: ornelmeolans@gmail.com\n🐙 GitHub: github.com/ornemeolans\n💼 LinkedIn: linkedin.com/in/ornellameolans\n📍 Ubicación: Córdoba, Argentina'
   },
   proyectos: {
     description: 'Lista de proyectos',
