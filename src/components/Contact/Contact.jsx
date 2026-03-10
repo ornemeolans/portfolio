@@ -79,8 +79,11 @@ function Contact() {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }
 
+  // Only scroll when user sends a message, not on initial load
   useEffect(() => {
-    scrollToBottom()
+    if (messages.length > 1) {
+      scrollToBottom()
+    }
   }, [messages])
 
   const getCommandResponse = (cmd) => {
