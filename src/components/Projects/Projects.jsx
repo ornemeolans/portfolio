@@ -57,16 +57,38 @@ const PROJECTS = [
     codeUrl: 'https://github.com/ornemeolans/ornemeolansph'
   },
   {
-  id: 6,
-  type: 'project',
-  title: 'Kosa E-commerce',
-  category: 'Web App',
-  description: 'Plataforma de comercio electrónico para productos de hogar y decoración. Incluye catálogo dinámico, gestión de carrito y validación de stock en tiempo real.',
-  image: 'https://image.thum.io/get/width/800/crop/600/https://kosa-ecommerce.netlify.app/', // O la URL de tu preferencia para la vista previa
-  tags: ['React', 'Firebase', 'Context API', 'Responsive'],
-  liveUrl: 'https://kosa-ecommerce.netlify.app/', 
-  codeUrl: 'https://github.com/ornemeolans/kosa-ecommerce'
-}
+    id: 6,
+    type: 'project',
+    title: 'Kosa E-commerce',
+    category: 'Web App',
+    description: 'Plataforma de comercio electrónico para productos de hogar y decoración. Incluye catálogo dinámico, gestión de carrito y validación de stock en tiempo real.',
+    image: 'https://image.thum.io/get/width/800/crop/600/https://kosa-ecommerce.netlify.app/', // O la URL de tu preferencia para la vista previa
+    tags: ['React', 'Firebase', 'Context API', 'Responsive'],
+    liveUrl: 'https://kosa-ecommerce.netlify.app/',
+    codeUrl: 'https://github.com/ornemeolans/kosa-ecommerce'
+  },
+  {
+    id: 7,
+    type: 'project',
+    title: 'Aesthetic To-Do List',
+    category: 'Web App / Productivity',
+    description: 'Aplicación de gestión de tareas con estética Glassmorphism. Implementa un sistema de estado centralizado, persistencia híbrida (LocalStorage e IndexedDB para imágenes) y un modo enfoque Pomodoro para maximizar la productividad.',
+    image: 'https://image.thum.io/get/width/800/crop/600/https://aesthetic-to-do-list.netlify.app/',
+    tags: ['JavaScript Vanilla', 'State Management', 'IndexedDB', 'Glassmorphism'],
+    liveUrl: 'https://aesthetic-to-do-list.netlify.app/',
+    codeUrl: 'https://github.com/ornemeolans/to-do-list'
+  },
+  {
+    id: 8,
+    type: 'project',
+    title: 'Plataforma de Gestión Tambera (Tambo360)',
+    category: 'Desarrollo Frontend / Equipo',
+    description: 'Colaboración en el desarrollo de la interfaz de usuario para una plataforma integral de gestión tambera. Responsable de la implementación de componentes reactivos, optimización de flujos de navegación y consumo de APIs para la visualización de métricas críticas de producción.',
+    image: 'https://image.thum.io/get/width/800/crop/600/https://tambo360.vercel.app/',
+    tags: ['React', 'Frontend Team', 'API Integration', 'UI Components'],
+    liveUrl: 'https://tambo360.vercel.app/',
+    codeUrl: 'https://github.com/IgrowkerTraining/i006-tambo360-fullstack'
+  }
 ]
 
 const SKILLS = [
@@ -99,16 +121,16 @@ function Projects() {
   return (
     <section id="projects" className="projects">
       <div className="projects__container">
-        
+
         <div className="projects__tabs">
-          <button 
+          <button
             className={`projects__tab ${activeTab === 'projects' ? 'projects__tab--active' : ''}`}
             onClick={() => setActiveTab('projects')}
           >
             <span className="projects__tab-icon">💡</span>
             Proyectos
           </button>
-          <button 
+          <button
             className={`projects__tab ${activeTab === 'skills' ? 'projects__tab--active' : ''}`}
             onClick={() => setActiveTab('skills')}
           >
@@ -139,8 +161,8 @@ function Projects() {
                   onMouseLeave={() => setHoveredId(null)}
                 >
                   <div className="bento-item__image-wrapper">
-                    <img 
-                      src={project.image} 
+                    <img
+                      src={project.image}
                       alt={project.title}
                       className={`bento-item__image ${hoveredId === project.id ? 'bento-item__image--color' : ''}`}
                       loading="lazy"
@@ -159,17 +181,17 @@ function Projects() {
                       </div>
                     </div>
                     <div className="bento-item__links">
-                      <a 
-                        href={project.liveUrl} 
-                        target="_blank" 
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="bento-item__link"
                       >
                         Ver Demo
                       </a>
-                      <a 
-                        href={project.codeUrl} 
-                        target="_blank" 
+                      <a
+                        href={project.codeUrl}
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="bento-item__link bento-item__link--secondary"
                       >
@@ -198,8 +220,8 @@ function Projects() {
 
             <div className="skills-grid">
               {SKILLS.map((skill, index) => (
-                <div 
-                  key={skill.name} 
+                <div
+                  key={skill.name}
                   className="skill-card"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
