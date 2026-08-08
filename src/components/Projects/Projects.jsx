@@ -88,6 +88,17 @@ const PROJECTS = [
     tags: ['React', 'Frontend Team', 'API Integration', 'UI Components'],
     liveUrl: 'https://tambo360.vercel.app/',
     codeUrl: 'https://github.com/IgrowkerTraining/i006-tambo360-fullstack'
+  },
+  {
+    id: 9,
+    type: 'project',
+    title: 'Invitación Digital Baby Shower (Amparo)',
+    category: 'Desarrollo Frontend / Proyecto Personal',
+    description: 'Desarrollo integral de una invitación web interactiva para baby shower, construida con React y Vite. Implementación de componentes visuales personalizados, animaciones y diseño responsive, con despliegue continuo en Netlify.',
+    image: 'https://image.thum.io/get/width/800/crop/600/https://amparo-baby-shower.netlify.app/',
+    tags: ['React', 'Vite', 'Frontend', 'UI Design'],
+    liveUrl: 'https://amparo-baby-shower.netlify.app/',
+    codeUrl: 'https://github.com/ornemeolans/amparo-baby-shower'
   }
 ]
 
