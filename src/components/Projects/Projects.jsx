@@ -2,6 +2,17 @@ import { useState } from 'react'
 
 const PROJECTS = [
   {
+    id: 10,
+    type: 'project',
+    title: 'Club-Canchas - Sistema de Reservas',
+    category: 'Full Stack / Producto Completo',
+    description: 'Sistema de reservas para un club deportivo (futbol y tenis), con frontend en React y backend en Node.js/Express. Integra Mercado Pago (checkout, webhooks y reconciliacion automatica) y WhatsApp Business API para confirmaciones, ambos probados en entorno de prueba, mas sincronizacion con Google Calendar/Sheets y panel de administracion con bloqueo de turnos.',
+    image: 'https://image.thum.io/get/width/800/crop/600/https://club-canchas.netlify.app/',
+    tags: ['React', 'Node.js/Express', 'Mercado Pago', 'WhatsApp API'],
+    liveUrl: 'https://club-canchas.netlify.app/',
+    codeUrl: 'https://github.com/ornemeolans/club-canchas'
+  },
+  {
     id: 1,
     type: 'project',
     title: 'Mandala Cakes',
