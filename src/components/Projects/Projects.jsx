@@ -13,6 +13,17 @@ const PROJECTS = [
     codeUrl: 'https://github.com/ornemeolans/club-canchas'
   },
   {
+  id: 11,
+  type: 'project',
+  title: 'Simulador de Camara - Tutor de Fotografia',
+  category: 'Frontend / React + Firebase',
+  description: 'Simulador interactivo de una camara reflex (inspirado en la Nikon D7200) que ensena fotografia: se ajustan obturador, apertura, ISO, lente, balance de blancos y compensacion de exposicion, y el visor reproduce el efecto real en canvas (exposicion en pasos, desenfoque de fondo, grano, motion blur e histograma en vivo). Al disparar, un tutor en espanol analiza la toma con reglas de fotografia (exposicion, congelado de movimiento, ruido, balance de blancos y regla de tercios) y devuelve que salio bien, que mejorar y como corregirlo, con puntaje. Incluye escenas con distinta luz (dia, nublado, noche), desafios puntuados, presets y galeria persistente en Firestore con sesion anonima y reglas por usuario. PWA instalable, tests con Vitest, TypeScript en la logica y deploy en Firebase Hosting.',
+  image: 'https://image.thum.io/get/width/800/crop/600/https://camera-simulator.web.app/',
+  tags: ['React', 'Firebase', 'Canvas', 'TypeScript'],
+  liveUrl: 'https://camera-simulator.web.app/',
+  codeUrl: 'https://github.com/ornemeolans/camera-simulator'
+  },
+  {
     id: 1,
     type: 'project',
     title: 'Mandala Cakes',
