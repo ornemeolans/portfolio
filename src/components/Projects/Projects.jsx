@@ -2,8 +2,22 @@ import { useState } from 'react'
 
 const PROJECTS = [
   {
+    id: 12,
+    type: 'project',
+    featured: true,
+    title: 'Flujo - Finanzas Personales',
+    category: 'Full Stack / PWA',
+    description: 'PWA offline-first para controlar finanzas personales, pensada para cómo se usa la plata en Argentina: billeteras con rendimiento diario por TNA, tarjetas con cuotas que caen en el resumen correcto según el cierre, y préstamos por sistema francés con IVA y débito automático. Funciona sin conexión (IndexedDB + Service Worker) y sincroniza entre dispositivos con una API en Express. Recordatorios push, modo claro y oscuro, 38 tests (Vitest + Playwright), WCAG 2.1 AA y Lighthouse 97+.',
+    image: 'https://flujo-app.netlify.app/og.png',
+    imageAspect: '1200 / 630',
+    tags: ['React', 'TypeScript', 'PWA Offline-First', 'Node.js/Express'],
+    liveUrl: 'https://flujo-app.up.railway.app/?demo=1',
+    codeUrl: 'https://github.com/ornemeolans/flujo'
+  },
+  {
     id: 10,
     type: 'project',
+    featured: true,
     title: 'Club-Canchas - Sistema de Reservas',
     category: 'Full Stack / Producto Completo',
     description: 'Sistema de reservas para un club deportivo (futbol y tenis), con frontend en React y backend en Node.js/Express. Integra Mercado Pago (checkout, webhooks y reconciliacion automatica) y WhatsApp Business API para confirmaciones, ambos probados en entorno de prueba, mas sincronizacion con Google Calendar/Sheets y panel de administracion con bloqueo de turnos.',
@@ -13,15 +27,15 @@ const PROJECTS = [
     codeUrl: 'https://github.com/ornemeolans/club-canchas'
   },
   {
-  id: 11,
-  type: 'project',
-  title: 'Simulador de Camara - Tutor de Fotografia',
-  category: 'Frontend / React + Firebase',
-  description: 'Simulador interactivo de una camara reflex (inspirado en la Nikon D7200) que ensena fotografia: se ajustan obturador, apertura, ISO, lente, balance de blancos y compensacion de exposicion, y el visor reproduce el efecto real en canvas (exposicion en pasos, desenfoque de fondo, grano, motion blur e histograma en vivo). Al disparar, un tutor en espanol analiza la toma con reglas de fotografia (exposicion, congelado de movimiento, ruido, balance de blancos y regla de tercios) y devuelve que salio bien, que mejorar y como corregirlo, con puntaje. Incluye escenas con distinta luz (dia, nublado, noche), desafios puntuados, presets y galeria persistente en Firestore con sesion anonima y reglas por usuario. PWA instalable, tests con Vitest, TypeScript en la logica y deploy en Firebase Hosting.',
-  image: 'https://image.thum.io/get/width/800/crop/600/https://camera-simulator.web.app/',
-  tags: ['React', 'Firebase', 'Canvas', 'TypeScript'],
-  liveUrl: 'https://camera-simulator.web.app/',
-  codeUrl: 'https://github.com/ornemeolans/camera-simulator'
+    id: 11,
+    type: 'project',
+    title: 'Simulador de Camara - Tutor de Fotografia',
+    category: 'Frontend / React + Firebase',
+    description: 'Simulador interactivo de una camara reflex (inspirado en la Nikon D7200) que ensena fotografia: se ajustan obturador, apertura, ISO, lente, balance de blancos y compensacion de exposicion, y el visor reproduce el efecto real en canvas (exposicion en pasos, desenfoque de fondo, grano, motion blur e histograma en vivo). Al disparar, un tutor en espanol analiza la toma con reglas de fotografia (exposicion, congelado de movimiento, ruido, balance de blancos y regla de tercios) y devuelve que salio bien, que mejorar y como corregirlo, con puntaje. Incluye escenas con distinta luz (dia, nublado, noche), desafios puntuados, presets y galeria persistente en Firestore con sesion anonima y reglas por usuario. PWA instalable, tests con Vitest, TypeScript en la logica y deploy en Firebase Hosting.',
+    image: 'https://raw.githubusercontent.com/ornemeolans/camera-simulator/main/docs/screenshot-dia.png',
+    tags: ['React', 'Firebase', 'Canvas', 'TypeScript'],
+    liveUrl: 'https://camera-simulator.web.app/',
+    codeUrl: 'https://github.com/ornemeolans/camera-simulator'
   },
   {
     id: 1,
@@ -117,7 +131,7 @@ const PROJECTS = [
     title: 'Invitación Digital Baby Shower (Amparo)',
     category: 'Desarrollo Frontend / Proyecto Personal',
     description: 'Desarrollo integral de una invitación web interactiva para baby shower, construida con React y Vite. Implementación de componentes visuales personalizados, animaciones y diseño responsive, con despliegue continuo en Netlify.',
-    image: 'https://image.thum.io/get/width/800/crop/600/https://amparo-baby-shower.netlify.app/',
+    image: `${import.meta.env.BASE_URL}projects/amparo.jpg`,
     tags: ['React', 'Vite', 'Frontend', 'UI Design'],
     liveUrl: 'https://amparo-baby-shower.netlify.app/',
     codeUrl: 'https://github.com/ornemeolans/amparo-baby-shower'
@@ -145,16 +159,24 @@ const EDUCATION = [
   { initial: 'C', title: 'Full Stack Developer', place: 'Coderhouse', status: 'Finalizado' }
 ]
 
-function ProjectCard({ project, index, featured }) {
+// En la grilla de 3 columnas, si la última fila queda con una sola tarjeta, esa tarjeta ocupa todo el ancho
+const regularProjects = PROJECTS.filter((project) => !project.featured)
+const WIDE_PROJECT_ID = regularProjects.length % 3 === 1 ? regularProjects.at(-1).id : null
+
+function ProjectCard({ project, index, featured, wide }) {
   const [imageFailed, setImageFailed] = useState(false)
+  const variant = featured ? 'project-card--featured' : wide ? 'project-card--wide' : ''
 
   return (
-    <article className={`project-card ${featured ? 'project-card--featured' : ''}`}>
+    <article className={`project-card ${variant}`}>
       <div className="project-card__media">
         <div className="project-card__chrome" aria-hidden="true">
           <span /><span /><span />
         </div>
-        <div className="project-card__frame">
+        <div
+          className="project-card__frame"
+          style={project.imageAspect ? { aspectRatio: project.imageAspect } : undefined}
+        >
           <span className="project-card__placeholder" aria-hidden="true">
             {project.title.charAt(0)}
           </span>
@@ -253,7 +275,8 @@ function Projects() {
                   key={project.id}
                   project={project}
                   index={index}
-                  featured={index === 0}
+                  featured={project.featured}
+                  wide={project.id === WIDE_PROJECT_ID}
                 />
               ))}
             </div>

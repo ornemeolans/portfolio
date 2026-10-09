@@ -2110,23 +2110,31 @@ section {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .project-card--featured {
+  .project-card--featured,
+  .project-card--wide {
     display: grid;
     grid-template-columns: 1.35fr 1fr;
   }
 
-  .project-card--featured .project-card__media {
+  .project-card--wide {
+    grid-column: 1 / -1;
+  }
+
+  .project-card--featured .project-card__media,
+  .project-card--wide .project-card__media {
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 1.5rem 0 1.5rem 1.5rem;
   }
 
-  .project-card--featured .project-card__frame {
+  .project-card--featured .project-card__frame,
+  .project-card--wide .project-card__frame {
     border-radius: 0.75rem;
   }
 
-  .project-card--featured .project-card__body {
+  .project-card--featured .project-card__body,
+  .project-card--wide .project-card__body {
     justify-content: center;
     padding: 2.5rem;
   }
@@ -2137,6 +2145,15 @@ section {
 
   .project-card--featured .project-card__description {
     -webkit-line-clamp: 6;
+  }
+
+  .project-card--featured + .project-card--featured {
+    grid-template-columns: 1fr 1.35fr;
+  }
+
+  .project-card--featured + .project-card--featured .project-card__media {
+    order: 2;
+    padding: 1.5rem 1.5rem 1.5rem 0;
   }
 
   .skill-groups {
