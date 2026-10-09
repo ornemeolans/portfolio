@@ -131,7 +131,7 @@ function Hero() {
           </h2>
 
           <p className="hero__description">
-            Frontend Developer con ojo de fotógrafa. Construyo interfaces en React cuidadas al detalle y llevo proyectos de punta a punta, como Club-Canchas, un sistema de reservas con pagos integrados. Me mueve resolver problemas reales: así nació, por iniciativa propia, la Calculadora de Sueldos Konecta.
+            Frontend Developer con ojo de fotógrafa. Construyo interfaces en React cuidadas al detalle y llevo proyectos de punta a punta, como Club‑Canchas, un sistema de reservas con pagos integrados. Me mueve resolver problemas reales: así nació, por iniciativa propia, la Calculadora de Sueldos Konecta.
           </p>
 
           <div className="hero__cta">
