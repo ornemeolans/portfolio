@@ -11,7 +11,7 @@ const PROJECTS = [
     image: 'https://flujo-app.netlify.app/og.png',
     imageAspect: '1200 / 630',
     tags: ['React', 'TypeScript', 'PWA Offline-First', 'Node.js/Express'],
-    liveUrl: 'https://flujo-app.up.railway.app/?demo=1',
+    liveUrl: 'https://flujo-app.netlify.app/',
     codeUrl: 'https://github.com/ornemeolans/flujo'
   },
   {
@@ -32,7 +32,7 @@ const PROJECTS = [
     title: 'Simulador de Camara - Tutor de Fotografia',
     category: 'Frontend / React + Firebase',
     description: 'Simulador interactivo de una camara reflex (inspirado en la Nikon D7200) que ensena fotografia: se ajustan obturador, apertura, ISO, lente, balance de blancos y compensacion de exposicion, y el visor reproduce el efecto real en canvas (exposicion en pasos, desenfoque de fondo, grano, motion blur e histograma en vivo). Al disparar, un tutor en espanol analiza la toma con reglas de fotografia (exposicion, congelado de movimiento, ruido, balance de blancos y regla de tercios) y devuelve que salio bien, que mejorar y como corregirlo, con puntaje. Incluye escenas con distinta luz (dia, nublado, noche), desafios puntuados, presets y galeria persistente en Firestore con sesion anonima y reglas por usuario. PWA instalable, tests con Vitest, TypeScript en la logica y deploy en Firebase Hosting.',
-    image: 'https://raw.githubusercontent.com/ornemeolans/camera-simulator/main/docs/screenshot-dia.png',
+    image: `${import.meta.env.BASE_URL}projects/camera-simulator.jpg`,
     tags: ['React', 'Firebase', 'Canvas', 'TypeScript'],
     liveUrl: 'https://camera-simulator.web.app/',
     codeUrl: 'https://github.com/ornemeolans/camera-simulator'
@@ -109,7 +109,7 @@ const PROJECTS = [
     title: 'Aesthetic To-Do List',
     category: 'Web App / Productivity',
     description: 'Aplicación de gestión de tareas con estética Glassmorphism. Implementa un sistema de estado centralizado, persistencia híbrida (LocalStorage e IndexedDB para imágenes) y un modo enfoque Pomodoro para maximizar la productividad.',
-    image: 'https://image.thum.io/get/width/800/crop/600/https://aesthetic-to-do-list.netlify.app/',
+    image: `${import.meta.env.BASE_URL}projects/to-do-list.jpg`,
     tags: ['JavaScript Vanilla', 'State Management', 'IndexedDB', 'Glassmorphism'],
     liveUrl: 'https://aesthetic-to-do-list.netlify.app/',
     codeUrl: 'https://github.com/ornemeolans/to-do-list'
