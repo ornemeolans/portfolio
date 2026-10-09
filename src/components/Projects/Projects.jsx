@@ -114,50 +114,112 @@ const PROJECTS = [
 ]
 
 const SKILLS = [
-  { name: 'React', icon: 'react', category: 'frontend' },
-  { name: 'JavaScript', icon: 'js', category: 'frontend' },
-  { name: 'HTML/CSS', icon: 'html', category: 'frontend' },
-  { name: 'Photoshop', icon: 'ps', category: 'design' },
-  { name: 'Lightroom', icon: 'lr', category: 'design' },
-  { name: 'Edición Digital', icon: 'edit', category: 'design' },
-  { name: 'Git', icon: 'git', category: 'tools' }
+  { name: 'React', mark: 'Re', category: 'frontend' },
+  { name: 'JavaScript', mark: 'JS', category: 'frontend' },
+  { name: 'HTML/CSS', mark: '</>', category: 'frontend' },
+  { name: 'Photoshop', mark: 'Ps', category: 'design' },
+  { name: 'Lightroom', mark: 'Lr', category: 'design' },
+  { name: 'Edición Digital', mark: 'Ed', category: 'design' },
+  { name: 'Git', mark: 'Git', category: 'tools' }
 ]
 
-function Projects() {
-  const [hoveredId, setHoveredId] = useState(null)
-  const [activeTab, setActiveTab] = useState('projects')
+const SKILL_GROUPS = [
+  { id: 'frontend', title: 'Frontend', description: 'Interfaces rápidas, accesibles y pixel perfect.' },
+  { id: 'design', title: 'Diseño & Fotografía', description: 'Ojo de fotógrafa aplicado a cada pantalla.' },
+  { id: 'tools', title: 'Herramientas', description: 'Flujo de trabajo ordenado y colaborativo.' }
+]
 
-  const getIcon = (iconName) => {
-    const icons = {
-      react: '⚛️',
-      js: '📜',
-      html: '🎨',
-      ps: '📷',
-      lr: '✨',
-      edit: '🎯',
-      git: '📦'
-    }
-    return icons[iconName] || '💻'
-  }
+const EDUCATION = [
+  { initial: 'U', title: 'Licenciatura en Cs. de la Computacion', place: 'Universidad', status: 'En curso' },
+  { initial: 'C', title: 'Full Stack Developer', place: 'Coderhouse', status: 'Finalizado' }
+]
+
+function ProjectCard({ project, index, featured }) {
+  const [imageFailed, setImageFailed] = useState(false)
+
+  return (
+    <article className={`project-card ${featured ? 'project-card--featured' : ''}`}>
+      <div className="project-card__media">
+        <div className="project-card__chrome" aria-hidden="true">
+          <span /><span /><span />
+        </div>
+        <div className="project-card__frame">
+          <span className="project-card__placeholder" aria-hidden="true">
+            {project.title.charAt(0)}
+          </span>
+          {!imageFailed && (
+            <img
+              src={project.image}
+              alt={`Vista previa de ${project.title}`}
+              className="project-card__image"
+              loading="lazy"
+              onError={() => setImageFailed(true)}
+            />
+          )}
+        </div>
+      </div>
+
+      <div className="project-card__body">
+        <div className="project-card__meta">
+          <span className="project-card__index">{String(index + 1).padStart(2, '0')}</span>
+          <span className="project-card__category">{project.category}</span>
+        </div>
+        <h3 className="project-card__title">{project.title}</h3>
+        <p className="project-card__description">{project.description}</p>
+        <ul className="project-card__tags">
+          {project.tags.map((tag) => (
+            <li key={tag} className="project-card__tag">{tag}</li>
+          ))}
+        </ul>
+        <div className="project-card__links">
+          <a
+            href={project.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="project-card__link project-card__link--primary"
+          >
+            Ver demo
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+              <path d="M7 17L17 7M17 7H7M17 7V17" />
+            </svg>
+          </a>
+          <a
+            href={project.codeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="project-card__link project-card__link--ghost"
+          >
+            Código
+          </a>
+        </div>
+      </div>
+    </article>
+  )
+}
+
+function Projects() {
+  const [activeTab, setActiveTab] = useState('projects')
 
   return (
     <section id="projects" className="projects">
       <div className="projects__container">
 
-        <div className="projects__tabs">
+        <div className="projects__tabs" role="tablist" aria-label="Contenido de la sección">
           <button
+            role="tab"
+            aria-selected={activeTab === 'projects'}
             className={`projects__tab ${activeTab === 'projects' ? 'projects__tab--active' : ''}`}
             onClick={() => setActiveTab('projects')}
           >
-            <span className="projects__tab-icon">💡</span>
             Proyectos
           </button>
           <button
+            role="tab"
+            aria-selected={activeTab === 'skills'}
             className={`projects__tab ${activeTab === 'skills' ? 'projects__tab--active' : ''}`}
             onClick={() => setActiveTab('skills')}
           >
-            <span className="projects__tab-icon">🛠️</span>
-            Habilidades Tecnicas
+            Habilidades Técnicas
           </button>
         </div>
 
@@ -174,54 +236,14 @@ function Projects() {
               </p>
             </div>
 
-            <div className="bento-grid">
-              {PROJECTS.map((project) => (
-                <div
+            <div className="project-grid">
+              {PROJECTS.map((project, index) => (
+                <ProjectCard
                   key={project.id}
-                  className="bento-item bento-item--project"
-                  onMouseEnter={() => setHoveredId(project.id)}
-                  onMouseLeave={() => setHoveredId(null)}
-                >
-                  <div className="bento-item__image-wrapper">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className={`bento-item__image ${hoveredId === project.id ? 'bento-item__image--color' : ''}`}
-                      loading="lazy"
-                    />
-                  </div>
-
-                  <div className="bento-item__overlay">
-                    <div className="bento-item__content">
-                      <span className="bento-item__category">{project.category}</span>
-                      <h3 className="bento-item__title">{project.title}</h3>
-                      <p className="bento-item__description">{project.description}</p>
-                      <div className="bento-item__tags">
-                        {project.tags.map((tag) => (
-                          <span key={tag} className="bento-item__tag">{tag}</span>
-                        ))}
-                      </div>
-                    </div>
-                    <div className="bento-item__links">
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bento-item__link"
-                      >
-                        Ver Demo
-                      </a>
-                      <a
-                        href={project.codeUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bento-item__link bento-item__link--secondary"
-                      >
-                        Codigo
-                      </a>
-                    </div>
-                  </div>
-                </div>
+                  project={project}
+                  index={index}
+                  featured={index === 0}
+                />
               ))}
             </div>
           </div>
@@ -240,37 +262,41 @@ function Projects() {
               </p>
             </div>
 
-            <div className="skills-grid">
-              {SKILLS.map((skill, index) => (
-                <div
-                  key={skill.name}
-                  className="skill-card"
-                  style={{ animationDelay: `${index * 0.1}s` }}
+            <div className="skill-groups">
+              {SKILL_GROUPS.map((group, groupIndex) => (
+                <article
+                  key={group.id}
+                  className={`skill-group skill-group--${group.id}`}
+                  style={{ animationDelay: `${groupIndex * 0.12}s` }}
                 >
-                  <span className="skill-card__icon">{getIcon(skill.icon)}</span>
-                  <span className="skill-card__name">{skill.name}</span>
-                  <span className="skill-card__category">{skill.category}</span>
-                </div>
+                  <span className="skill-group__shape" aria-hidden="true" />
+                  <h3 className="skill-group__title">{group.title}</h3>
+                  <p className="skill-group__description">{group.description}</p>
+                  <ul className="skill-group__list">
+                    {SKILLS.filter((skill) => skill.category === group.id).map((skill) => (
+                      <li key={skill.name} className="skill-item">
+                        <span className="skill-item__mark" aria-hidden="true">{skill.mark}</span>
+                        <span className="skill-item__name">{skill.name}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
               ))}
             </div>
 
             <div className="education-section">
-              <h3 className="education-section__title">Formacion Academica</h3>
+              <h3 className="education-section__title">Formación Académica</h3>
               <div className="education-cards">
-                <div className="education-card">
-                  <span className="education-card__icon">U</span>
-                  <div className="education-card__content">
-                    <h4>Licenciatura en Cs. de la Computacion</h4>
-                    <p>Universidad - En curso</p>
+                {EDUCATION.map((item) => (
+                  <div key={item.title} className="education-card">
+                    <span className="education-card__icon" aria-hidden="true">{item.initial}</span>
+                    <div className="education-card__content">
+                      <h4>{item.title}</h4>
+                      <p>{item.place}</p>
+                    </div>
+                    <span className="education-card__status">{item.status}</span>
                   </div>
-                </div>
-                <div className="education-card">
-                  <span className="education-card__icon">C</span>
-                  <div className="education-card__content">
-                    <h4>Full Stack Developer</h4>
-                    <p>Coderhouse - En curso</p>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>

@@ -52,6 +52,8 @@ function App() {
         <Contact />
       </main>
 
+      <a href="#contact" className="floating-cta">Hablemos</a>
+
       <footer className="footer">
         <p>© {new Date().getFullYear()} • Construido con pasión</p>
       </footer>
