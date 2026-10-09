@@ -1835,10 +1835,6 @@ section {
   font-size: 0.92rem;
   line-height: 1.6;
   color: var(--text-secondary);
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 
 .project-card__tags {
@@ -2141,10 +2137,6 @@ section {
 
   .project-card--featured .project-card__title {
     font-size: 2rem;
-  }
-
-  .project-card--featured .project-card__description {
-    -webkit-line-clamp: 6;
   }
 
   .project-card--featured + .project-card--featured {
